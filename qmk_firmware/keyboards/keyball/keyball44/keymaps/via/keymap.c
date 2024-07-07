@@ -69,3 +69,12 @@ void oledkit_render_info_user(void) {
     keyball_oled_render_layerinfo();
 }
 #endif
+
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case LT(1, KC_SPC):
+            return 200;  // スペースキー固有のtapping term
+        default:
+            return TAPPING_TERM;
+    }
+}
